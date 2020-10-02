@@ -8,16 +8,16 @@
 
 ## 1. Installation:
 
-_Install react-paginator:_
+_Install my-react-paginator:_
 
 ```js
-npm install react-paginator --save
+npm install my-react-paginator --save
 ```
 
 **or**
 
 ```js
-yarn add react-paginator
+yarn add my-react-paginator
 ```
 
 ## 2. Usage:
@@ -25,7 +25,7 @@ yarn add react-paginator
 _App.js_
 
 ```js
-import Paginator from 'react-paginator';
+import Paginator from 'my-react-paginator';
 
 <Paginator page={1} totalPages={10} onPageChange={onPageChange} />;
 ```
@@ -40,7 +40,7 @@ _App.js_
 
 ```js
 import React from 'react';
-import Paginator from 'react-paginator';
+import Paginator from 'my-react-paginator';
 
 function App() {
   var [page, setPage] = React.useState(1);
@@ -75,19 +75,19 @@ function App() {
 export default App;
 ```
 
-_Props_
+## 5. Props:
 
-| Prop name        | Description                                                 | Type                  | Default value |
-| ---------------- | ----------------------------------------------------------- | --------------------- | ------------- |
-| `page`           | **Required.** Current page.                                 | `Number`              | -             |
-| `totalPages`     | **Required.** The total number of pages.                    | `Number`              | -             |
-| `onPageChange`   | **Required.** The function to call when a page is changed.  | `Function`            | -             |
-| `containerStyle` | Container style for component.                              | `Object`              | -             |
-| `pageStyle`      | Style of the page number component.                         | `Object`              | -             |
-| `buttonStyle`    | Style of the back, next components.                         | `Object`              | -             |
-| `activeColor`    | Background color of active page, back, and next components. | `String`              | black         |
-| `position`       | Position of paginator.                                      | `right, center, left` | -             |
-| `backLabel`      | Back button Text.                                           | `String`              | Back          |
-| `nextLabel`      | Next button Text.                                           | `String`              | Next          |
-| `onBack`         | The function to call when back button is clicked.           | `Function`            | -             |
-| `onNext`         | he function to call when next button is clicked.            | `Function`            | -             |
+| Prop name        | Description                                                 | Type                        | Default value |
+| ---------------- | ----------------------------------------------------------- | --------------------------- | ------------- |
+| `page`           | **Required.** Current page.                                 | `Number`                    | -             |
+| `totalPages`     | **Required.** The total number of pages.                    | `Number`                    | -             |
+| `onPageChange`   | **Required.** The function to call when a page is changed.  | `Function`                  | -             |
+| `containerStyle` | Container style for component.                              | `Object`                    | -             |
+| `pageStyle`      | Style of the page number component.                         | `Object`                    | -             |
+| `buttonStyle`    | Style of the back, next components.                         | `Object`                    | -             |
+| `activeColor`    | Background color of active page, back, and next components. | `String`                    | black         |
+| `position`       | Position of paginator.                                      | `right`\| `center`\| `left` | -             |
+| `backLabel`      | Back button Text.                                           | `String`                    | Back          |
+| `nextLabel`      | Next button Text.                                           | `String`                    | Next          |
+| `onBack`         | The function to call when back button is clicked.           | `Function`                  | -             |
+| `onNext`         | The function to call when next button is clicked.           | `Function`                  | -             |
