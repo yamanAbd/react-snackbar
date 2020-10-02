@@ -77,17 +77,17 @@ export default App;
 
 ## 5. Props:
 
-| Prop name        | Description                                                 | Type                        | Default value |
-| ---------------- | ----------------------------------------------------------- | --------------------------- | ------------- |
-| `page`           | **Required.** Current page.                                 | `Number`                    | -             |
-| `totalPages`     | **Required.** The total number of pages.                    | `Number`                    | -             |
-| `onPageChange`   | **Required.** The function to call when a page is changed.  | `Function`                  | -             |
-| `containerStyle` | Container style for component.                              | `Object`                    | -             |
-| `pageStyle`      | Style of the page number component.                         | `Object`                    | -             |
-| `buttonStyle`    | Style of the back, next components.                         | `Object`                    | -             |
-| `activeColor`    | Background color of active page, back, and next components. | `String`                    | black         |
-| `position`       | Position of paginator.                                      | `right`\| `center`\| `left` | -             |
-| `backLabel`      | Back button Text.                                           | `String`                    | Back          |
-| `nextLabel`      | Next button Text.                                           | `String`                    | Next          |
-| `onBack`         | The function to call when back button is clicked.           | `Function`                  | -             |
-| `onNext`         | The function to call when next button is clicked.           | `Function`                  | -             |
+| Prop name        | Description                                                 | Type                              | Default value |
+| ---------------- | ----------------------------------------------------------- | --------------------------------- | ------------- |
+| `page`           | **Required.** Current page.                                 | `Number`                          | -             |
+| `totalPages`     | **Required.** The total number of pages.                    | `Number`                          | -             |
+| `onPageChange`   | **Required.** The function to call when a page is changed.  | `Function`                        | -             |
+| `containerStyle` | Container style for component.                              | `Object`                          | -             |
+| `pageStyle`      | Style of the page number component.                         | `Object`                          | -             |
+| `buttonStyle`    | Style of the back, next components.                         | `Object`                          | -             |
+| `activeColor`    | Background color of active page, back, and next components. | `String`                          | black         |
+| `position`       | Position of paginator.                                      | `'right'`\| `'center'`\| `'left'` | 'center'      |
+| `backLabel`      | Back button Text.                                           | `String`                          | Back          |
+| `nextLabel`      | Next button Text.                                           | `String`                          | Next          |
+| `onBack`         | The function to call when back button is clicked.           | `Function`                        | -             |
+| `onNext`         | The function to call when next button is clicked.           | `Function`                        | -             |
