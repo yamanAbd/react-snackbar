@@ -1,7 +1,7 @@
 {
-  "name": "react-paginator",
+  "name": "react-my-paginator",
   "version": "1.0.0",
-  "description": "React paginator component",
+  "description": "Simple & Easy React Paginator Component",
   "main": "./lib/index.js",
   "scripts": {
     "build": "webpack"
