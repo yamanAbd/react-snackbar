@@ -1,33 +1,18 @@
 import React from 'react';
-import Paginator from 'react-paginator';
+import SnackBar from 'my-react-snackbar';
 
 function App() {
-  var [page, setPage] = React.useState(1);
+  var [open, setOpen] = React.useState(false);
 
-  function onPageChange(num) {
-    setPage(num);
-  }
-  function back() {
-    setPage(--page);
-  }
-  function next() {
-    setPage(++page);
-  }
   return (
     <div>
-      <Paginator
-        containerStyle={{ bottom: 10 }}
-        buttonStyle={{ width: 38, height: 38, borderRadius: 10 }}
-        pageStyle={{ borderRadius: 10 }}
-        activeColor='navy'
-        position='center'
-        nextLabel='next'
-        backLabel='back'
-        onBack={back}
-        onNext={next}
-        page={page}
-        totalPages={12}
-        onPageChange={onPageChange}
+      <SnackBar
+        open={open}
+        message={'Are you sure you want to delete it?'}
+        position='bottom-center'
+        type='warning'
+        yesLabel='Ok'
+        onYes={() => {}}
       />
     </div>
   );

@@ -8,16 +8,16 @@
 
 ## 1. Installation:
 
-_Install my-react-paginator:_
+_Install my-react-snackbar:_
 
 ```js
-npm install my-react-paginator --save
+npm install my-react-snackbar --save
 ```
 
 **or**
 
 ```js
-yarn add my-react-paginator
+yarn add my-react-snackbar
 ```
 
 ## 2. Usage:
@@ -25,14 +25,13 @@ yarn add my-react-paginator
 _App.js_
 
 ```js
-import Paginator from 'my-react-paginator';
-
-<Paginator page={1} totalPages={10} onPageChange={onPageChange} />;
+import SnackBar from 'my-react-snackbar';
+<SnackBar open={open} message={'Are you sure you want to delete it?'} />;
 ```
 
 ## 3. Demo:
 
-<img src="https://raw.githubusercontent.com/yamanAbd/react-paginator/master/demo/react-paginator.gif" alt="Pagination demo">
+<img src="https://raw.githubusercontent.com/yamanAbd/react-snackbar/master/demo/react-snackbar.gif" alt="Snackbar demo">
 
 ## 4. Full Example:
 
@@ -40,54 +39,44 @@ _App.js_
 
 ```js
 import React from 'react';
-import Paginator from 'my-react-paginator';
+import SnackBar from 'my-react-snackbar';
 
 function App() {
-  var [page, setPage] = React.useState(1);
+  var [open, setOpen] = React.useState(false);
 
-  function onPageChange(num) {
-    setPage(num);
-  }
-  function back() {
-    setPage(--page);
-  }
-  function next() {
-    setPage(++page);
-  }
   return (
     <div>
-      <Paginator
-        buttonStyle={{ width: 40, height: 40 }}
-        pageStyle={{ borderRadius: 10 }}
-        activeColor='navy'
-        position='center'
-        nextLabel='next'
-        backLabel='back'
-        onBack={back}
-        onNext={next}
-        page={page}
-        totalPages={12}
-        onPageChange={onPageChange}
+      <SnackBar
+        open={open}
+        message={'Are you sure you want to delete it?'}
+        position='bottom-center'
+        type='warning'
+        yesLabel='Ok'
+        onYes={() => {}}
       />
     </div>
   );
 }
+
 export default App;
 ```
 
+For more examples and styles please check https://github.com/yamanAbd/react-snackbar/tree/master/examples
+
 ## 5. Props:
 
-| Prop name        | Description                                                 | Type                              | Default value |
-| ---------------- | ----------------------------------------------------------- | --------------------------------- | ------------- |
-| `page`           | **Required.** Current page.                                 | `Number`                          | -             |
-| `totalPages`     | **Required.** The total number of pages.                    | `Number`                          | -             |
-| `onPageChange`   | **Required.** The function to call when a page is changed.  | `Function`                        | -             |
-| `containerStyle` | Container style for component.                              | `Object`                          | -             |
-| `pageStyle`      | Style of the page number component.                         | `Object`                          | -             |
-| `buttonStyle`    | Style of the back, next components.                         | `Object`                          | -             |
-| `activeColor`    | Background color of active page, back, and next components. | `String`                          | black         |
-| `position`       | Position of paginator.                                      | `'right'`\| `'center'`\| `'left'` | 'center'      |
-| `backLabel`      | Back button Text.                                           | `String`                          | Back          |
-| `nextLabel`      | Next button Text.                                           | `String`                          | Next          |
-| `onBack`         | The function to call when back button is clicked.           | `Function`                        | -             |
-| `onNext`         | The function to call when next button is clicked.           | `Function`                        | -             |
+| Prop name        | Description                                      | Type                                                                                                   | Default value |
+| ---------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------- |
+| `open`           | **Required.** Status of the snackbar.            | `boolean`                                                                                              | -             |
+| `message`        | **Required.** The Message to display.            | `String`                                                                                               | -             |
+| `containerStyle` | Container style for component.                   | `Object`                                                                                               | -             |
+| `buttonStyle`    | Style of the yes & no buttons.                   | `Object`                                                                                               | -             |
+| `color`          | Background color of the snackbar.                | `String`                                                                                               | 'black'       |
+| `type`           | Type of snackbar                                 | `'error'`\| `'success'`\| `'warning'` \| `'info'`                                                      | -             |
+| `position`       | Position of the snack bar.                       | `'top-center'`\| `'top-right'`\| `'top-left'` \| `'bottom-center'`\| `'bottom-right'`\|`'bottom-left'` | 'top-center'  |
+| `yesLabel`       | Yes button Text.                                 | `String`                                                                                               | 'Yes'         |
+| `noLabel`        | No button Text.                                  | `String`                                                                                               | 'No'          |
+| `onYes`          | The function to call when yes button is clicked. | `Function`                                                                                             | -             |
+| `onNo`           | The function to call when no button is clicked.  | `Function`                                                                                             | -             |
+| `timeout`        | Specify duration of snackbar.                    | `Number`                                                                                               | -             |
+| `closeOnClick`   | Specify if snackbar will disappear on mousedown  | `boolean`                                                                                              | true          |

@@ -1,95 +1,85 @@
-import React from 'react';
-import { styles, position, color } from './styles';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { styles, snackbar } from './styles';
+import types from './data';
 
 const propTypes = {
-  page: PropTypes.number.isRequired,
-  totalPages: PropTypes.number.isRequired,
-  onPageChange: PropTypes.func.isRequired,
-  containerStyle: PropTypes.object,
-  pageStyle: PropTypes.object,
-  buttonStyle: PropTypes.object,
-  activeColor: PropTypes.string,
+  open: PropTypes.bool.isRequired,
+  message: PropTypes.string.isRequired,
+  color: PropTypes.string,
+  type: PropTypes.string,
   position: PropTypes.string,
-  nextLabel: PropTypes.string,
-  backLabel: PropTypes.string,
-  onBack: PropTypes.func,
-  onNext: PropTypes.func,
+  containerStyle: PropTypes.object,
+  buttonStyle: PropTypes.object,
+  yesLabel: PropTypes.string,
+  noLabel: PropTypes.string,
+  onYes: PropTypes.func,
+  onNo: PropTypes.func,
+  timeout: PropTypes.number,
+  closeOnClick: PropTypes.bool,
 };
 const defaultProps = {
-  activeColor: 'black',
-  backLabel: 'Back',
-  nextLabel: 'Next',
+  position: 'top-center',
+  color: 'black',
+  yesLabel: 'Yes',
+  noLabel: 'No',
+  closeOnClick: true,
 };
-function Paginator(props) {
-  var pages = [];
-  var items = [];
-  var max_pages = 10;
+function SnackBar(props) {
+  const [open, setOpen] = React.useState(props.open);
 
-  function renderPages() {
-    if (props.totalPages <= max_pages) for (var i = 1; i <= props.totalPages; i++) pages.push(i);
-    else {
-      var maxPagesOnRight = 5;
-      var maxPagesOnLeft = 4;
-      if (props.page < maxPagesOnRight) {
-        for (var i = 1; i <= maxPagesOnRight; i++) pages.push(i);
-        pages.push('...');
-        pages.push(props.totalPages - 1);
-        pages.push(props.totalPages);
-      } else if (props.page > props.totalPages - maxPagesOnLeft) {
-        pages.push(1);
-        pages.push(2);
-        pages.push('...');
-        for (i = props.totalPages - maxPagesOnLeft; i <= props.totalPages; i++) pages.push(i);
-      } else {
-        pages.push(1);
-        pages.push(2);
-        pages.push('...');
-        for (i = props.page - 2; i <= props.page + 2; i++) pages.push(i);
-        pages.push('...');
-        pages.push(props.totalPages - 1);
-        pages.push(props.totalPages);
-      }
-    }
-    pages.map(num => {
-      items.push(
-        <div
-          style={{
-            ...styles.page,
-            ...props.pageStyle,
-            ...color(props.activeColor, props.page === num),
-          }}
-          onClick={() => (!isNaN(num) ? props.onPageChange(num) : null)}
-        >
-          {num}
-        </div>
-      );
-    });
-    return items;
+  useEffect(() => {
+    setOpen(props.open);
+    if (props.open && props.timeout)
+      setTimeout(() => {
+        setOpen(false);
+      }, props.timeout);
+  }, [props.open]);
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClose);
+    return () => {
+      document.removeEventListener('mousedown', handleClose);
+    };
+  }, []);
+
+  function handleClose() {
+    props.closeOnClick && setOpen(false);
   }
   return (
-    <div style={{ ...styles.root, ...position(props.position), ...props.containerStyle }}>
-      {props.onBack && props.page > 1 && (
-        <div
-          style={{ ...styles.button, ...props.buttonStyle, ...color(props.activeColor, true) }}
-          onClick={props.onBack}
-        >
-          {props.backLabel}
+    <div style={styles.wrapper}>
+      <div
+        style={{
+          ...snackbar(
+            open,
+            props.type ? types[props.type].color : props.color,
+            props.onYes || props.onNo,
+            props.position
+          ),
+          ...props.containerStyle,
+        }}
+      >
+        <div style={styles.wrapper}>
+          {props.type && <img style={styles.img} src={types[props.type].icon} width='25' height='25' alt='Icon' />}
+          <div>{props.message}</div>
         </div>
-      )}
-      {renderPages()}
-      {props.onNext && props.page < props.totalPages && (
-        <div
-          style={{ ...styles.button, ...props.buttonStyle, ...color(props.activeColor, true) }}
-          onClick={props.onNext}
-        >
-          {props.nextLabel}
+        <div style={styles.wrapper}>
+          {props.onYes && (
+            <div style={{ ...styles.button, ...props.buttonStyle }} onClick={props.onYes}>
+              {props.yesLabel}
+            </div>
+          )}
+          {props.onNo && (
+            <div style={{ ...styles.button, ...props.buttonStyle }} onClick={props.onNo}>
+              {props.noLabel}
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 }
-Paginator.propTypes = propTypes;
-Paginator.defaultProps = defaultProps;
+SnackBar.propTypes = propTypes;
+SnackBar.defaultProps = defaultProps;
 
-export default Paginator;
+export default SnackBar;
