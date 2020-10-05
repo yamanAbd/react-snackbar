@@ -1,6 +1,6 @@
 {
   "name": "my-react-snackbar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple & Easy React SnackBar Component",
   "main": "./lib/index.js",
   "scripts": {
