@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import SVG from 'react-inlinesvg';
 import { styles, snackbar } from './styles';
 import types from './data';
 
@@ -60,7 +61,7 @@ function SnackBar(props) {
         }}
       >
         <div style={styles.wrapper}>
-          {props.type && <img style={styles.img} src={types[props.type].icon} width='25' height='25' alt='Icon' />}
+          {props.type && <SVG style={styles.img} src={types[props.type].icon} width='25' height='25' alt='Icon' />}
           <div>{props.message}</div>
         </div>
         <div style={styles.wrapper}>
