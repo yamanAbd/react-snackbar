@@ -65,18 +65,18 @@ For more examples and styles please check https://github.com/yamanAbd/react-snac
 
 ## 5. Props:
 
-| Prop name        | Description                                      | Type                                                                                                   | Default value |
-| ---------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------- |
-| `open`           | **Required.** Status of the snackbar.            | `boolean`                                                                                              | -             |
-| `message`        | **Required.** The Message to display.            | `String`                                                                                               | -             |
-| `containerStyle` | Container style for component.                   | `Object`                                                                                               | -             |
-| `buttonStyle`    | Style of the yes & no buttons.                   | `Object`                                                                                               | -             |
-| `color`          | Background color of the snackbar.                | `String`                                                                                               | 'black'       |
-| `type`           | Type of snackbar                                 | `'error'`\| `'success'`\| `'warning'` \| `'info'`                                                      | -             |
-| `position`       | Position of the snack bar.                       | `'top-center'`\| `'top-right'`\| `'top-left'` \| `'bottom-center'`\| `'bottom-right'`\|`'bottom-left'` | 'top-center'  |
-| `yesLabel`       | Yes button Text.                                 | `String`                                                                                               | 'Yes'         |
-| `noLabel`        | No button Text.                                  | `String`                                                                                               | 'No'          |
-| `onYes`          | The function to call when yes button is clicked. | `Function`                                                                                             | -             |
-| `onNo`           | The function to call when no button is clicked.  | `Function`                                                                                             | -             |
-| `timeout`        | Specify duration of snackbar.                    | `Number`                                                                                               | -             |
-| `closeOnClick`   | Specify if snackbar will disappear on mousedown  | `boolean`                                                                                              | true          |
+| Prop name        | Description                                                 | Type                                                                                                   | Default value |
+| ---------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------- |
+| `open`           | **Required.** Status of the snackbar.                       | `boolean`                                                                                              | -             |
+| `message`        | **Required.** The Message to display.                       | `String`                                                                                               | -             |
+| `containerStyle` | Container style for component.                              | `Object`                                                                                               | -             |
+| `buttonStyle`    | Style of the yes & no buttons.                              | `Object`                                                                                               | -             |
+| `type`           | Type of snackbar                                            | `'error'`\| `'success'`\| `'warning'` \| `'info'`                                                      | -             |
+| `color`          | Background color of the snackbar when type is not provided. | `String`                                                                                               | 'black'       |
+| `position`       | Position of the snack bar.                                  | `'top-center'`\| `'top-right'`\| `'top-left'` \| `'bottom-center'`\| `'bottom-right'`\|`'bottom-left'` | 'top-center'  |
+| `yesLabel`       | Yes button Text.                                            | `String`                                                                                               | 'Yes'         |
+| `noLabel`        | No button Text.                                             | `String`                                                                                               | 'No'          |
+| `onYes`          | The function to call when yes button is clicked.            | `Function`                                                                                             | -             |
+| `onNo`           | The function to call when no button is clicked.             | `Function`                                                                                             | -             |
+| `timeout`        | Specify duration of snackbar.                               | `Number`                                                                                               | -             |
+| `closeOnClick`   | Specify if snackbar will disappear on mousedown             | `boolean`                                                                                              | true          |
