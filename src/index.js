@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { styles, snackbar } from './styles';
 import types from './data';
@@ -26,7 +26,7 @@ const defaultProps = {
   closeOnClick: true,
 };
 function SnackBar(props) {
-  const [open, setOpen] = React.useState(props.open);
+  const [open, setOpen] = useState(props.open);
 
   useEffect(() => {
     setOpen(props.open);
